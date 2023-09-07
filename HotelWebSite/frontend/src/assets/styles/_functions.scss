@@ -1,0 +1,20 @@
+@use 'sass:string';
+@import 'variables';
+
+@function adaptive-single-value($size, $min_size) {
+	@return calc(
+		#{$min_size + px} + #{$size - $min_size} *
+			((100vw - #{$phone_size + px}) / (#{$desktop_size - $phone_size}))
+	);
+}
+
+@function adaptive-double-value($sizeY, $min_sizeY, $sizeX, $min_sizeX) {
+	@return calc(
+			#{$min_sizeY + px} + #{$sizeY - $min_sizeY} *
+				((100vw - #{$phone_size + px}) / #{$desktop_size - $phone_size})
+		)
+		calc(
+			#{$min_sizeX + px} + #{$sizeX - $min_sizeX} *
+				((100vw - #{$phone_size + px}) / #{$desktop_size - $phone_size})
+		);
+}

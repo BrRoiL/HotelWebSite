@@ -1,0 +1,10 @@
+@import '/src/assets/styles/variables';
+@import '/src/assets/styles/functions';
+@import '/src/assets/styles/mixins';
+
+.main {
+	width: 100vw;
+	height: 100vh;
+
+	background-color: #121214;
+}

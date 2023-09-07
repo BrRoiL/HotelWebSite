@@ -1,0 +1,180 @@
+@import '/src/assets/styles/variables';
+@import '/src/assets/styles/functions';
+@import '/src/assets/styles/mixins';
+
+.footer {
+	margin-top: adaptive-single-value(80, 40);
+
+	background-color: $background-color-accent-2;
+
+	.container {
+		display: flex;
+
+		.information {
+			margin-top: adaptive-single-value(75, 37);
+			margin-right: adaptive-single-value(50, 25);
+
+			.logotype {
+				svg {
+					width: calc(
+						(#{var(--width-px)} / 2) +
+							(
+								(var(--width) - (var(--width) / 2)) *
+									(
+										(100vw - #{$phone_size + px}) /
+											($desktop_size - $phone_size)
+									)
+							)
+					);
+					height: calc(
+						(#{var(--height-px)} / 2) +
+							(
+								(var(--height) - (var(--height) / 2)) *
+									(
+										(100vw - #{$phone_size + px}) /
+											($desktop_size - $phone_size)
+									)
+							)
+					);
+				}
+			}
+
+			.text {
+				margin-top: adaptive-single-value(30, 15);
+
+				width: adaptive-single-value(360, 180);
+
+				@include font(400, $text_size-small, lighten($text_color, 20%));
+			}
+
+			.buttons {
+				display: flex;
+				flex-wrap: wrap;
+				grid-gap: adaptive-single-value(15, 7);
+
+				margin-top: adaptive-single-value(40, 20);
+
+				.button {
+					display: flex;
+					align-items: center;
+
+					width: fit-content;
+
+					padding: adaptive-single-value(16, 8) adaptive-single-value(20, 10);
+
+					border-radius: adaptive-single-value(6, 3);
+
+					background-color: $background-color-accent;
+
+					svg {
+						margin-right: adaptive-single-value(15, 7);
+					}
+
+					.name {
+						@include font(600, $text_size-small, $text_color);
+					}
+				}
+			}
+		}
+
+		.menus {
+			display: flex;
+
+			margin-top: adaptive-single-value(75, 37);
+
+			.menu {
+				margin-right: adaptive-single-value(60, 30);
+
+				.caption {
+					@include font(700, $text_size-medium, $text_color);
+				}
+
+				.items {
+					margin-top: adaptive-single-value(30, 15);
+
+					.item {
+						&:not(:last-child) {
+							margin-bottom: adaptive-single-value(15, 7);
+						}
+
+						.link {
+							@include font(500, $text_size-medium, $text_color);
+						}
+					}
+				}
+			}
+		}
+
+		.contacts {
+			margin-top: adaptive-single-value(75, 37);
+
+			.caption {
+				margin-bottom: adaptive-single-value(30, 15);
+
+				@include font(700, $text_size-medium, $text_color);
+			}
+
+			.contact {
+				display: flex;
+
+				@include font(500, $text_size-medium, $text_color);
+
+				&:not(:last-child) {
+					margin-bottom: adaptive-single-value(15, 7);
+				}
+
+				.name {
+					@include font(500, $text_size-medium, $text_color);
+				}
+
+				.link {
+					margin-left: adaptive-single-value(5, 2);
+
+					@include font(500, $text_size-medium, $text_color);
+				}
+			}
+
+			.messengers {
+				margin-top: adaptive-single-value(35, 17);
+
+				.messenger {
+					&:not(:last-child) {
+						margin-right: adaptive-single-value(25, 12);
+					}
+
+					svg {
+					}
+				}
+			}
+		}
+	}
+
+	.line {
+		margin-top: adaptive-single-value(200, 100);
+
+		border: adaptive-single-value(1, 1) solid #e0e2e6;
+	}
+
+	.container {
+		.copyrights_and_create {
+			display: flex;
+			justify-content: space-between;
+
+			width: 100%;
+
+			padding: adaptive-single-value(40, 20) 0;
+
+			.copyrights {
+				@include font(600, $text_size-medium, $text_color);
+			}
+
+			.create {
+				@include font(600, $text_size-medium, $text_color);
+
+				.link {
+					@include font(700, $text_size-medium, $text_color);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+@import '/src/assets/styles/variables';
+@import '/src/assets/styles/functions';
+@import '/src/assets/styles/mixins';
+
+.icon {
+	display: block;
+
+	width: calc(
+		(#{var(--icon-width-px)} / 2) +
+			(
+				(var(--icon-width) - (var(--icon-width) / 2)) *
+					((100vw - #{$phone_size + px}) / ($desktop_size - $phone_size))
+			)
+	);
+	height: calc(
+		(#{var(--icon-height-px)} / 2) +
+			(
+				(var(--icon-height) - (var(--icon-height) / 2)) *
+					((100vw - #{$phone_size + px}) / ($desktop_size - $phone_size))
+			)
+	);
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+	display: inline-block;
+	vertical-align: middle;
+
+	background: transparent;
+}

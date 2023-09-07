@@ -1,0 +1,9 @@
+@mixin font($font_weight, $font_size, $color) {
+	font-weight: $font_weight;
+	font-size: adaptive-single-value($font_size, calc($font_size / 2));
+	line-height: adaptive-single-value(
+		$font_size + 4,
+		calc(($font_size + 4) / 2)
+	);
+	color: $color;
+}

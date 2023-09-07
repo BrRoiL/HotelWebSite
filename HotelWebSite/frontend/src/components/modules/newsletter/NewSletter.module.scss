@@ -1,0 +1,71 @@
+@import '/src/assets/styles/variables';
+@import '/src/assets/styles/functions';
+@import '/src/assets/styles/mixins';
+
+#newsletter {
+	margin-top: 0;
+
+	padding: adaptive-single-value(32, 16) 0;
+
+	background-color: $background-color-accent;
+
+	.container {
+		display: flex;
+		align-items: center;
+
+		.information_text {
+			margin-right: adaptive-single-value(75, 37);
+
+			.caption {
+				margin-bottom: adaptive-single-value(5, 2);
+
+				@include font(700, $text_size-medium, $text_color);
+			}
+
+			.text {
+				@include font(500, $text_size-small, $text_color);
+			}
+		}
+
+		.get_news {
+			display: flex;
+			align-items: center;
+
+			position: relative;
+
+			width: 100%;
+
+			.input {
+				display: flex;
+				flex-direction: column;
+
+				width: 100%;
+
+				input[type='email'] {
+					padding: adaptive-single-value(16, 8) adaptive-single-value(25, 12);
+
+					border-radius: adaptive-single-value(24, 12);
+
+					@include font(500, $text_size-small, $text_color);
+				}
+
+				.error {
+					position: absolute;
+					bottom: -40%;
+
+					color: $error_color;
+				}
+			}
+
+			.send {
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				border-radius: 100%;
+
+				cursor: pointer;
+			}
+		}
+	}
+}

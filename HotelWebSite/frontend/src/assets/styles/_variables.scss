@@ -1,0 +1,26 @@
+//Screen settings
+$desktop_size: 1366;
+$table_size: 768;
+$phone_size: 320;
+
+$body: 1440;
+
+$background-color: #ffffff;
+$background-color-accent: #e8eaec;
+$background-color-accent-2: #eff0f2;
+
+//Text settings
+$text_size-smaller: 12;
+$text_size-small: 14;
+$text_size-medium: 16;
+$text_size-large: 24;
+$text_size-larger: 36;
+
+$color: #e9cd19;
+
+$text_color: #484848;
+$text_color_light: #ffffff;
+$text_color-hover: lighten($text_color, 20%);
+$text_color-accent: lighten($background-color, 70%);
+
+$error_color: red;

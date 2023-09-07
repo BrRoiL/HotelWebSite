@@ -1,0 +1,168 @@
+@import '/src/assets/styles/variables';
+@import '/src/assets/styles/functions';
+@import '/src/assets/styles/mixins';
+@import '/src/assets/styles/fonts/fonts';
+
+//Общие настройки
+* {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+
+	@include font(500, $text_size-smaller, $text_color);
+
+	transform-origin: center center;
+	pointer-events: auto;
+}
+
+//Настройки для body
+body {
+	max-width: 100vw;
+	width: 100vw;
+
+	height: 100%;
+
+	overflow-x: hidden;
+
+	background: $background-color;
+
+	opacity: 1;
+
+	pointer-events: none;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+		height: 8px;
+	}
+	&::-webkit-scrollbar-track {
+		background: $background-color-accent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $background-color-accent-2;
+		border-radius: 20px;
+	}
+}
+
+//Настройки для модулей
+body {
+	h1 {
+		@include font(500, $text_size-larger, $text_color_light);
+		text-transform: uppercase;
+
+		&.caption {
+			position: relative;
+
+			text-align: center;
+
+			.selection {
+				@include font(500, $text_size-larger, $text_color);
+				text-transform: uppercase;
+
+				color: $text-color;
+			}
+		}
+	}
+
+	h2 {
+		@include font(500, $text_size-large, $text_color_light);
+		text-transform: uppercase;
+
+		&.caption {
+			text-align: center;
+		}
+	}
+
+	h3 {
+		@include font(500, $text_size-medium, $text_color_light);
+		text-transform: uppercase;
+
+		&.caption {
+			text-align: center;
+		}
+	}
+
+	nav {
+		ul {
+			list-style-type: none;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.link {
+		display: inline-block;
+
+		position: relative;
+
+		width: fit-content;
+
+		color: $text_color;
+
+		text-decoration: none;
+
+		cursor: pointer;
+
+		&:hover {
+			color: $text_color-hover;
+		}
+
+		&::after {
+			content: '';
+
+			display: block;
+
+			position: absolute;
+			bottom: adaptive-single-value(-2, -1);
+			left: 50%;
+
+			width: 0;
+			height: adaptive-single-value(2, 1);
+
+			background: $text_color;
+
+			transition: width 0.3s ease 0s, left 0.3s ease 0s;
+		}
+
+		&:hover::after {
+			width: 100%;
+			left: 0;
+		}
+
+		&.active {
+			&::after {
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
+}
+
+//Настройки секций
+body {
+	#root {
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+
+		min-height: 100vh;
+
+		section {
+			margin-top: adaptive-single-value(100, 50);
+		}
+
+		.container {
+			padding: adaptive-double-value(0, 0, 80, 40);
+
+			@media screen and (max-width: #{$phone_size + px}) {
+				//padding: adaptive-double-value(20, 10, 40, 20);
+			}
+		}
+	}
+}
